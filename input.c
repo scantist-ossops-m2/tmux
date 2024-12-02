@@ -1897,6 +1897,12 @@ input_csi_dispatch_sgr_colon(struct input_ctx *ictx, u_int i)
 				free(copy);
 				return;
 			}
+		} else {
+			n++;
+			if (n == nitems(p)) {
+				free(copy);
+				return;
+			}
 		} else
 			n++;
 		log_debug("%s: %u = %d", __func__, n - 1, p[n - 1]);
